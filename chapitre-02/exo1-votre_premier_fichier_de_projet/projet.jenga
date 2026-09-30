@@ -1,0 +1,11 @@
+from Jenga import *
+
+with workspace("Projet"):
+    with project("Projet"):
+        consoleapp()
+        language("C++")
+        cppdialect("C++17")
+        files(["main.cpp"])
+
+        with filter("system:Windows"):
+            usetoolchain("clang-mingw")

@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "*.jenga": "python"
+    },
+    "python.analysis.include": [
+        "**/*.jenga",
+        "**/*.py"
+    ],
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportWildcardImportFromLibrary": "none",
+        "reportMissingImports": "warning",
+        "reportUndefinedVariable": "warning"
+    },
+    "python.analysis.extraPaths": [
+        "C:/Users/PC/Jenga",
+        ".jenga-typings"
+    ],
+    "_jengaIdeConfigVersion": "d7ee0e88bcf1faec"
+}
