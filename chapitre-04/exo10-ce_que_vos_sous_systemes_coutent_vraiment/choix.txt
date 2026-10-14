@@ -1,0 +1,12 @@
+Je garde :
+RENDER3D, 5895 us : indispensable pour dessiner la salle.
+SHADOW, +97 us : les ombres de la table et des objets.
+RENDER2D, +158 us : les textes et les indications destinés à l’utilisateur.
+GPU_CULLING, +137 us : le rejet des objets hors du champ de vision.
+Total estimé en additionnant la référence et les surcoûts retenus : 5895 + 97 + 158 + 137 = 6287 us, soit environ 6,29 ms sur les 11,11 ms disponibles à 90 Hz. Il reste environ 4,82 ms de marge.
+
+Pourquoi : RENDER3D est obligatoire pour afficher la salle. SHADOW est le sous-système additionnel le moins coûteux dans ces mesures (+97 us), et ses ombres aident à comprendre où les objets touchent le sol ou la table. RENDER2D coûte +158 us, mais il est utile pour afficher des textes ou des consignes. GPU_CULLING coûte +137 us dans cette petite scène, où presque tout est visible ; il peut cependant éviter le traitement d’objets hors champ lorsque la scène grandit.
+
+J’écarte POST_PROCESS, de loin le plus cher (+1061 us). J’écarte aussi VFX (+113 us), ANIMATION (+120 us), OFFSCREEN (+127 us) et RAYTRACING (+137 us), car ces fonctions ne sont pas nécessaires à cette salle fixe telle qu’elle est décrite. Je conserve une marge, car les mesures correspondent à la configuration testée et ne garantissent pas les performances d’un casque VR, où le coût réel dépend notamment de la cadence et du rendu par œil.
+
+Note : les mesures brutes ont été conservées. Il faut pouvoir les rattacher à l’exécution réelle et à la moyenne sur 400 images exigée par l’exercice.

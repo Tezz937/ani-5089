@@ -1,0 +1,5 @@
+Facteur : les composantes de la translation sont multipliées par les facteurs d’échelle si l’on écrit Scale * Translate. Pour le mur du fond, le centre correct est (0 ; 1,25 ; -2,00) et la taille est (4 ; 2,5 ; 0,1).
+
+Avec Scale * Translate, la translation s’applique d’abord, puis l’échelle la multiplie composante par composante : x = 0 × 4 = 0, y = 1,25 × 2,5 = 3,125 et z = -2,00 × 0,1 = -0,200. Le centre erroné devient donc (0 ; 3,125 ; -0,200).
+
+Pourquoi : la matrice la plus à droite s’applique en premier. L’ordre incorrect met à l’échelle non seulement le cube unitaire, mais aussi son déplacement : le mur est trop haut et se rapproche de l’origine en z. Avec Translate * Scale, on met d’abord le cube à l’échelle autour de son origine, puis on le déplace à (0 ; 1,25 ; -2,00) sans modifier cette translation.

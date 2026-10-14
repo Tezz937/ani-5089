@@ -1,0 +1,10 @@
+Avant : 78 lignes non vides dans les seuls blocs de placement comparés.
+Après : 61 lignes non vides dans les blocs de placement de poser.cpp.
+
+Méthode de comptage : même règle des deux côtés ; une instruction par ligne, sans compter les lignes vides ni les commentaires. Le décompte porte sur les constantes de dimensions/position et les fonctions qui construisent ou placent les objets. Il exclut les includes, la création de la fenêtre et du renderer, la caméra, la lumière, la boucle d’images et la fonction commune de soumission.
+
+Avant, le total annoncé de 78 est obtenu à partir de 27 constantes et des blocs DessinerSalle (26 lignes), DessinerOuvertures (12 lignes) et DessinerTable (13 lignes), soit 27 + 26 + 12 + 13 = 78.
+
+Après, le total annoncé de 61 comprend 6 constantes, PoserAuSol et PoserSurTable (3 lignes chacune), BoitePosee (4 lignes), AuSol (5 lignes), SurTable (5 lignes) et DessinerSalle (35 lignes), soit 6 + 3 + 3 + 4 + 5 + 5 + 35 = 61.
+
+Limite de la comparaison : la version après montre aussi un petit livre posé sur la table, qui n’était pas présent dans les trois anciens blocs de référence. L’écart de 17 lignes ne constitue donc pas une comparaison strictement à objets identiques ; à contenu identique, il faudrait retirer cet ajout du comptage. Les deux fonctions restent utiles, car elles centralisent la règle de placement et réduisent les risques d’erreur sur les prochaines scènes.

@@ -1,0 +1,11 @@
+Référence : RENDER3D seul = 5895 us.
+Surcoût calculé = mesure du couple - référence.
+
+1. RENDER3D+POST_PROCESS : 6956 us, surcoût +1061 us
+2. RENDER3D+RENDER2D : 6053 us, surcoût +158 us
+3 ex æquo. RENDER3D+RAYTRACING : 6032 us, surcoût +137 us
+3 ex æquo. RENDER3D+GPU_CULLING : 6032 us, surcoût +137 us
+5. RENDER3D+OFFSCREEN : 6022 us, surcoût +127 us
+6. RENDER3D+ANIMATION : 6015 us, surcoût +120 us
+7. RENDER3D+VFX : 6008 us, surcoût +113 us
+8. RENDER3D+SHADOW : 5992 us, surcoût +97 us

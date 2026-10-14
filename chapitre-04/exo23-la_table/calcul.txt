@@ -1,0 +1,13 @@
+Dimensions et position de la table (mètres)
+
+Plateau : longueur 1,20 ; profondeur 0,80 ; épaisseur 0,05. Son dessus est à y = 0,75.
+Centre vertical du plateau : 0,75 - 0,05 / 2 = 0,725.
+Ses limites verticales sont donc y = 0,700 (dessous) et y = 0,750 (dessus).
+
+Pieds : section 0,06 × 0,06. Ils vont du sol au dessous du plateau.
+Hauteur d’un pied : 0,75 - 0,05 = 0,70.
+Centre vertical d’un pied : 0,70 / 2 = 0,35.
+
+Position du plateau : centre x = 0,60 et centre z = 0,70. L’empreinte du plateau va de x = 0,00 à 1,20 et de z = 0,30 à 1,10.
+Décalage horizontal des centres des pieds : 1,20 / 2 - 0,06 / 2 = 0,57 en x ; 0,80 / 2 - 0,06 / 2 = 0,37 en z.
+Les quatre centres des pieds sont donc (0,03 ; 0,35 ; 0,33), (0,03 ; 0,35 ; 1,07), (1,17 ; 0,35 ; 0,33) et (1,17 ; 0,35 ; 1,07).

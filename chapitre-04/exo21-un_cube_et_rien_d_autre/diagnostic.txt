@@ -1,0 +1,19 @@
+Lignes :
+    NkMeshHandle cube = rendu->GetMeshSystem()->GetCube();
+        NkVec3f centre = DevantLaCamera(DISTANCE);
+        float32 arete = ARETE;
+        if (panne == ECHELLE_NULLE) {
+            arete = 0.f;
+        }
+        NkDrawCall3D leCube{};
+        leCube.mesh = cube;
+        leCube.transform = NkMat4f::Translate(centre) * NkMat4f::Scale({arete, arete, arete});
+        leCube.tint = {1.f, 1.f, 1.f};
+        if (panne != SANS_BOITE) {
+            float32 demi = arete * 0.5f;
+            leCube.aabb = {{centre.x - demi, centre.y - demi, centre.z - demi},
+                           {centre.x + demi, centre.y + demi, centre.z + demi}};
+        }
+        rendu3d->Submit(leCube);
+
+Cause : le mode normal utilise le cube unitaire (ARETE = 1 m) et le place à deux mètres devant la caméra. Pour provoquer une panne connue, j'ai lancé le programme avec l'argument « echelle_nulle ». Dans ce mode, la variable arete passe à 0 : la matrice de mise à l'échelle réduit alors le volume du cube à un point. Le renderer ne couvre plus aucun pixel et l'écran reste vide, sans message d'erreur. J'ai identifié la cause en suivant la valeur de arete jusqu'à Scale. Cette panne est un essai de diagnostic ; la capture finale cube.png doit montrer le cube en mode normal, sans argument de panne.
