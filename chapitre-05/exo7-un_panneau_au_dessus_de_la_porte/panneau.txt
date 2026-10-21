@@ -1,0 +1,8 @@
+atlas : 512 x 512
+image : 72 x 32
+
+Ma police et sa taille : Inter, embarquée dans le moteur, à 32 pixels. Elle donne un atlas de 512 x 512 pixels et une image de panneau de 72 x 32 pixels, posée sur un pavé de 0,20 m de haut sur 0,45 m de large, au-dessus de la porte (x = -0,70 m, contre le mur du fond). Les lettres sont lues dans l'atlas par leurs coordonnées u0, v0, u1, v1, avec une lecture bilinéaire.
+
+A trois metres : je n'ai pas pu prendre cette capture. La salle ne s'initialisait pas : le renderer n'a pas trouvé les ressources du moteur (dossier Resources/NKRenderer, shaders introuvables au lancement), et le journal le dit. Je ne décris donc pas ce que je n'ai pas vu. À partir des tailles : l'image fait 72 pixels de large pour 0,45 m, soit environ 160 pixels par mètre de panneau, ce qui reste lisible à quelques mètres.
+
+A cinquante centimetres : non plus, pour la même raison. À cette distance, 160 pixels par mètre donnent un texte qui devrait paraître flou ou en gros pixels, puisque l'atlas est rastérisé à 32 pixels et que rien ne le redessine à la taille vue : c'est ce que l'exercice 8 compare avec le SDF. C'est une prédiction, pas une observation.
