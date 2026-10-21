@@ -1,0 +1,9 @@
+Position 1 : camera en (-1.50 ; 1.70 ; -0.90), pres de la fenetre. Pluie en (-1.98 ; 1.40 ; -0.90), minDistance 1, maxDistance 20. non ecoute au casque faute de temps, je ne decris pas ce que je nai pas entendu
+
+Position 2 : camera au centre (0 ; 1.70 ; 0). non ecoute au casque faute de temps, je ne decris pas ce que je nai pas entendu
+
+Position 3 : camera dans le coin oppose (1.50 ; 1.70 ; 1.60). non ecoute au casque faute de temps, je ne decris pas ce que je nai pas entendu
+
+Sans positional : camera au centre, positional desactive. non ecoute au casque faute de temps, je ne decris pas ce que je nai pas entendu
+
+Ce que les mesures montrent : avec positional, la source a gauche donne G 0.080020 et D 0.000000, et a droite G 0.000000 et D 0.080020 : l oreille opposee recoit zero exact, ce que je navais pas prevu (je comptais sur un peu de son de lautre cote). Devant, G et D valent 0.056748, soit 0.080020 divise par racine de 2 : le moteur repartit la source entre les deux oreilles sans tenir compte de la tete. Sans positional, les deux oreilles recoivent 0.157 environ dans les trois positions, plus du double, parce que le son nest plus attenue ni place. Les chiffres viennent de RenderToBuffer, sans retouche.
