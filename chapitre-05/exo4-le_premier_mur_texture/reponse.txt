@@ -1,5 +1,5 @@
 Ma texture : une photo de mon propre mur, en JPEG, de 958 x 1280 pixels, rangée dans murs/mur.jpg à côté de l'endroit d'où je lance le programme. Le moteur l'a chargée en sRGB, comme le dit la ligne du journal. Elle est chargée une seule fois, avant la boucle, avec le renderer de la salle, puis donnée à un matériau PBR par SetAlbedoMap, et le matériau est donné au seul mur du fond par dc.material.
 
-Ce que le mur a gagne : ÉCRIS ICI CE QUE TU VOIS SUR LE MUR DU FOND APRÈS LE CHANGEMENT
+Ce que le mur a gagne : je constate que le mur a ete texturer il est plus visible et plus nette si non il a globalement garder les memes dimensions hein
 
 Ce qui m'a bloque : plus de temps sur l'installation que sur la texture. Le kit R3D a été compilé avec libc++ et mon compilateur de départ liait libstdc++ : le build était refusé, il m'a fallu installer NKCode (compilateur llvm-mingw). Ensuite la salle ne s'ouvrait pas : le moteur choisissait DirectX 12 et la compilation des shaders échouait, alors que mon Sprint 4 tournait en OpenGL, que j'ai dû forcer avec CreateForApi. Il fallait aussi copier Resources/NKRenderer à côté de l'endroit d'où je lance. Pour la texture elle-même, le chemin relatif part du dossier de lancement : j'ai donc lancé depuis le dossier du projet et passé par LocateResource.
