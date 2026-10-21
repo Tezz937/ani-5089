@@ -1,0 +1,4 @@
+avant, projet : le chargement echoue, le mur reste uni (d apres le journal) Journal : >>> avant, projet : regarde le mur, puis Echap
+avant, Build : le chargement echoue, le mur reste uni (d apres le journal) Journal : >>> avant, Build : regarde le mur, puis Echap
+apres, projet : le chargement echoue, le mur reste uni (d apres le journal) Journal : >>> apres, projet : regarde le mur, puis Echap
+apres, Build : le chargement echoue, le mur reste uni (d apres le journal) Journal : >>> apres, Build : regarde le mur, puis Echap

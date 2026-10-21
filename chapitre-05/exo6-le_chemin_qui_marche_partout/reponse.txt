@@ -1,0 +1,5 @@
+Ce qui a change : le dossier d'où je lance le programme, rien d'autre. Un chemin relatif comme murs/mur.jpg part du dossier courant : depuis le dossier du projet, murs/ existe ; depuis le dossier de l'exécutable, il n'existe pas. La panne vient donc du dossier courant, pas du code de rendu.
+
+Ce que LocateResource essaie : d'après le commentaire de NkPath.h, dans cet ordre : 1) le dossier courant ; 2) le dossier de l'exécutable ; 3) les parents de l'exécutable, 8 niveaux au plus ; 4) les parents du dossier courant, 8 niveaux au plus. Il rend le chemin absolu trouvé, ou une chaîne vide si rien n'existe : mon code teste cette chaîne vide avant de charger.
+
+Deja vu avec fopen : Oui, j ai reconnu le piege tout seul : c est le meme que celui du chapitre precedent, un chemin relatif qui depend du dossier de lancement.
