@@ -1,0 +1,5 @@
+Ce que rend Load : Load("murs/nexistepas.png") rend faux (charge : 0). L'image n'est pas valide (valide : 0) et ses dimensions sont nulles (largeur : 0, hauteur : 0). C'est le retour de Load qui dit que le chargement a échoué, avant même de regarder un pixel.
+
+Pourquoi rien ne plante : le moteur ne s'arrête pas pour un fichier manquant. Load rend faux, l'image reste vide, et le programme continue. Le seul signe est une ligne d'erreur dans le journal (logs/app.log), qui nomme le fichier : Echec chargement texture : murs/nexistepas.png. Rien n'apparaît à l'écran sur le moment, c'est ce qui rend la panne difficile à voir.
+
+Ce que montre le mur : les murs on l'air de ne pas etre la ()je crois que c'est pourquoi je vois cette couleur violette comme pour dire que ici, sur cet espace il ny a rien Le moteur a choisi de ne pas arrêter le programme, parce qu'un moteur qui s'arrête dès qu'un décor manque est insupportable à employer. Le défaut est que ce repli est silencieux pour qui ne lit pas le journal.
