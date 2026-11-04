@@ -1,0 +1,23 @@
+Les deux écarts types :
+Sans verrou, 6,430 ms. Avec verrou, 10,932 ms, soit 1,7 fois plus.
+Le maximum passe de 270,801 ms à 389,817 ms.
+Mais les moyennes sont presque égales : 253,041 et 253,241 ms.
+Le verrou vise deux périodes, 33,333 ms. Mon image dure 253 ms.
+Il n'a donc jamais eu à attendre, et il n'explique pas cet écart.
+Je suppose un lancement perturbé, sans l'avoir vérifié (un lancement par ligne).
+
+Ce que coûte le verrou :
+En images par seconde : 1000/253,041 = 3,95 sans verrou, 1000/253,241 = 3,95 avec.
+Le coût mesuré est nul, parce que le verrou n'a pas agi.
+Sur mon écran (59,999 Hz), un verrou à deux périodes viserait 30 images par seconde.
+Ma salle, avec une seule copie, n'y arrive pas.
+Attente : SleepMilliseconds dure environ 15,5 ms sans BeginPreciseTiming.
+Je ne dors donc qu'une milliseconde, et seulement s'il reste plus de 17 ms.
+Ensuite j'attends activement sur l'horloge. Cette branche n'a pas été exécutée.
+
+La décision du moteur :
+Je ne peux pas la juger sur mes mesures : la salle est 7,6 fois plus lente
+que la période verrouillée, donc le verrou n'a rien régulé.
+Ma mesure ne confirme ni n'infirme que 36 images stables valent mieux que 39 à 51 instables.
+Un écran de bureau ne reprojette rien : je mesure la régularité, pas le confort.
+Ce que le casque montre, et mon écran non, c'est la reprojection image par image.
