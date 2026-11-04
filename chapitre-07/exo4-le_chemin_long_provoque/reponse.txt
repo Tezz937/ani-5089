@@ -1,0 +1,11 @@
+L'image fautive :
+Sans le test du chemin court, l'image 431 (lacet = 270,46 deg) donne une vitesse de (0, -20, 0) deg/s et un delta.w brut de -0,999987. L'image d'avant (430, lacet 269,87 deg) est à (0, 20, 0) deg/s avec delta.w = 0,999984. L'image d'après (432, lacet 271,12 deg) est à (0, 20, 0) deg/s avec delta.w = 0,999983. Tour programme : 20 deg/s, tangage 0, 581 images, 1 image fautive.
+
+Le rapport :
+Vitesse fautive / vitesse de l'image d'avant = -20,00 / 20,00 = -1. La norme est inchangée, seul le sens s'inverse. Ce n'est pas le facteur trois annoncé dans le chapitre : dans ce moteur, Angle() utilise la valeur absolue de w, donc l'angle est déjà replié (mesuré : une rotation de 1 deg et son opposée donnent toutes deux 1,0001 deg). C'est Axis() qui n'est pas replié : l'axe sort en (0, -1, 0) au lieu de (0, 1, 0).
+
+Pourquoi à ce lacet :
+Le diagnostic (balayage du lacet de 0 à 360 deg par pas de 0,25 deg, tangages 0, 30 et -30) trouve une seule inversion, à lacet = 270,25 deg, pour les trois tangages. Le quaternion issu de la conversion matrice -> quaternion passe de (0, 0.7071, 0, -0.7071) à (0, -0.7056, 0, 0.7086) : il change de signe alors que la rotation ne bouge que de 0,25 deg. À 270 deg, |w| et |y| sont égaux (environ 0,7071), et le quaternion bascule d'une écriture à l'autre. Je n'ai pas lu le code de la conversion : ce lien avec le choix de branche est une explication compatible avec les mesures, pas une vérification du code.
+
+Ce qu'aurait vu le casque :
+Pendant une seule image, le monde partirait dans le sens opposé. Avec une prédiction d'une période (13,9 ms à 72 Hz), la pose prédite serait décalée de 20 x 0,0139 = 0,28 deg dans le mauvais sens au lieu de 0,28 deg dans le bon, soit environ 0,56 deg d'erreur à 20 deg/s (calcul, non mesuré). Cela serait à peine visible à cette vitesse, mais l'erreur croît avec la vitesse de la tête : à 200 deg/s elle serait de l'ordre de 5,6 deg, et le monde sursauterait une image, puis reviendrait. Avec le test de signe, la vitesse reste à +20 deg/s sur toute la plage.
