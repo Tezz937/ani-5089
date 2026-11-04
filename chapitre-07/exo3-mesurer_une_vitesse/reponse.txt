@@ -1,0 +1,20 @@
+La série programmée :
+Les 20 lignes valent (0, 30,00, 0) deg/s : x et z sont à 0,00, y vaut +30,00.
+Le signe est le bon (lacet croissant avec l'horloge, MASALLE_TOUR=30).
+Le temps entre images varie de 248,054 à 420,956 ms, et la vitesse ne bouge pas.
+La vitesse ne dépend donc pas de dt : la série est stable.
+
+La série à la souris :
+Le lacet va de -248,91 à +239,88 deg/s : 12 vitesses négatives, 7 positives, 1 nulle.
+Ce n'est pas la vitesse constante demandée. Je ne sais pas si ma main a fait des
+allers-retours ou si c'est l'accumulation des deltas. Les images 37 à 49 ont un dt
+proche (282 à 318 ms) et des vitesses très différentes : le bruit ne vient pas de dt.
+L'image 35 dure 588,648 ms, la suivante 13,217 ms avec une vitesse nulle.
+
+D'où vient le bruit :
+Les deux séries utilisent le même calcul de vitesse et la même construction de
+l'orientation. Seule la source du lacet change : l'horloge (stable) ou la souris
+(bruitée). Le bruit vient donc de la souris, pas du calcul ni de dt.
+J'ai reçu 2628 événements bruts sur 80 images, soit environ 33 par image.
+Chaque image cumule plusieurs centaines de ms de geste de main, qui n'est jamais régulier.
+Hypothèse non vérifiée : les événements arrivent en rafales irrégulières avec ma salle lente.
