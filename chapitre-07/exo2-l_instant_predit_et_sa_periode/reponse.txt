@@ -1,0 +1,19 @@
+Ce qui est stable :
+L'ecart (predit - maintenant) vaut la periode a chaque ligne : 13,889 ms a 72 Hz.
+C'est une addition, donc une constante par construction, qui ne prouve rien.
+Ce qui n'est pas stable, c'est le temps entre deux debuts d'image.
+Sur les lignes relevees, maintenant avance de 266,624 ms puis de 250,012 ms.
+Reel - predit varie aussi d'une cadence a l'autre : 236,091 a 244,369 ms.
+
+Un divisé par la cadence :
+Les quatre periodes sont exactes : 1000/60 = 16,667 ms, 1000/72 = 13,889 ms,
+1000/90 = 11,111 ms et 1000/120 = 8,333 ms. Le programme les imprime telles quelles.
+
+La période de mon écran :
+Reel - predit vaut l'intervalle reel moins la periode choisie. En ajoutant la
+periode : 252,063 (72 Hz), 252,758 (60 Hz), 253,285 (90 Hz), 252,702 (120 Hz).
+La moyenne est 252,702 ms, avec 1,222 ms d'ecart entre les quatre. Cet
+intervalle ne depend pas de MASALLE_HZ : c'est le rythme de ma salle, pas la
+periode de l'ecran. Je ne peux donc pas tirer la periode de l'ecran de ces
+quatre ecarts. 252,702 / 16,667 = 15,16 periodes, ce qui est compatible avec
+l'ecran des reglages Windows (59,999 Hz, 16,667 ms), sans le prouver.
