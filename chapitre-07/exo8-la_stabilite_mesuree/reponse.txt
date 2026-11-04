@@ -1,0 +1,21 @@
+Le nombre qui compte :
+C'est le nombre d'images hors budget : 237 sur 237 avec l'attente de l'écran, 238 sur 238 sans elle,
+soit 100 % des images au-dessus de 11,111 ms (le budget de 90 Hz). Dans un casque, chaque image
+hors budget est reprojetée : le compositeur reprend l'image précédente et la repositionne, et les
+bords des objets proches se dédoublent. Ici, ce serait vrai à chaque image, pas par moments.
+
+Pourquoi pas la moyenne :
+La moyenne (254,438 ms avec l'attente, 253,229 ms sans) dit que la salle est lente, mais pas si le
+rythme est régulier. Ici l'écart type est petit (7,303 ms et 6,534 ms, environ 3 % de la moyenne)
+et le maximum proche de la moyenne (267,150 ms, soit 1,05 fois), donc le rythme est stable.
+Dans ma mesure de l'exo 1, au contraire, la ligne sans attente avait une moyenne de 270,366 ms et un
+maximum de 594,022 ms : la moyenne cachait une image plus de deux fois plus longue que les autres.
+Je n'ai pas vérifié l'origine de cette pointe, je suppose un lancement perturbé.
+
+Ce que l'écran change :
+Presque rien dans mes mesures : 1,209 ms d'écart sur la moyenne (254,438 contre 253,229), et 0,769 ms
+sur l'écart type, soit moins que l'écart type lui-même. Les 254 ms valent environ 15 périodes de mon
+écran (59,999 Hz, 16,667 ms), mais l'attente de l'écran ne peut en expliquer qu'une au plus. C'est
+donc le travail de la salle qui fixe le rythme, pas l'écran (carte Intel HD Graphics, DirectX 11).
+Je ne sais pas si cfg.vsync = false a vraiment retiré l'attente sous DirectX 11, donc je ne conclus pas
+que l'attente est sans effet : je rapporte seulement que, sur ma machine, les deux lignes se confondent.
