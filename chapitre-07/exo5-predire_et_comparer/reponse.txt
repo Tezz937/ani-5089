@@ -1,0 +1,18 @@
+Le gain :
+Moyenne avec prediction 15,9376 deg, sans 16,1642 deg, sur 1000 images.
+Rapport sans/avec : 16,1642 / 15,9376 = 1,014, soit 1,4 % d'erreur en moins.
+Le maximum est un peu pire avec prediction : 68,4822 deg contre 67,2705 deg.
+Il y a eu 234 images immobiles sur 1000 (erreur sans prediction sous 0,01 deg).
+
+D'où vient l'erreur qui reste :
+Le modele suppose une vitesse constante. Une souris accelere et change de sens.
+Surtout, ma salle met environ 260 ms entre deux images (exo 1 : 254,841 ms).
+La prediction n'extrapole que d'une periode d'ecran, 16,7 ms (MASALLE_HZ=60).
+Elle ne couvre donc que 6 % environ de l'ecart (calcul, non mesure).
+Le reste, la tete l'a parcouru sans que le modele le voie.
+Les 20402 evenements souris recus s'accumulent par rafales sur plusieurs centaines de ms.
+
+Le facteur dix :
+Faux sur mes chiffres : le rapport est de 1,014, pas de 10 ou plus.
+Je n'ai pas mesure d'autre geste ni d'autre cadence.
+L'affirmation vaut sans doute pour une salle qui tient la cadence, pas pour la mienne.
