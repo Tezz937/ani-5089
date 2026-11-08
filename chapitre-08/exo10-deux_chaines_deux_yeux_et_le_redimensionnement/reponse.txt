@@ -1,0 +1,21 @@
+Ce qui se passe sans recreer :
+La chaine garde ses anciennes poignees, qui designent des cibles de 1280x720.
+Mon controle le montre : la poignee soumise vaut 0x100100, et elle ne designe
+plus aucune cible vivante (non). Le rendu continue de fonctionner, puisqu'il dessine
+dans la cible hors ecran, mais la soumission envoie une poignee perimee.
+
+Pourquoi reenregistrer ne suffit pas seul :
+Mon second controle montre l'erreur inverse : une chaine recreee sans reenregistrer
+soumet la poignee 0x0, parce que son tableau est neuf, donc plein de zeros.
+Il faut donc les trois operations : detruire, recreer, reenregistrer.
+Reenregistrer seul sur l'ancienne chaine, je ne l'ai pas mesure : c'est un raisonnement.
+La chaine, avec son anneau, son compte d'images et son drapeau d'emprunt, vient de l'ancienne taille,
+et les poignees ne sont qu'une partie de son etat.
+
+Ce que les deux yeux doivent partager :
+La taille des cibles et l'evenement de redimensionnement : les deux chaines sont refaites
+ensemble, avec les memes dimensions. Elles ne partagent ni anneau, ni drapeau, ni poignees.
+Dans ma trace, les deux yeux avancent au meme rythme, donc les index sont identiques.
+Cela ne montre pas un oeil en avance sur l'autre.
+Limite : ce programme n'ouvre pas de fenetre. Le redimensionnement est simule,
+et les cibles sont des poignees dans un ensemble, pas de vraies textures.

@@ -1,0 +1,7 @@
+detruit la chaine oeil gauche
+detruit la chaine oeil droit
+cree les nouvelles cibles hors ecran en 1920x1080
+recree la chaine oeil gauche (3 images)
+recree la chaine oeil droit (3 images)
+reenregistre les 3 images de l'oeil gauche
+reenregistre les 3 images de l'oeil droit
