@@ -1,0 +1,12 @@
+Ce que le banc refuse :
+Trois choses. Emprunter deux fois de suite, tant que l'image n'est pas rendue.
+Rendre sans avoir emprunte. Creer une chaine plus grande que le maximum de 4 images.
+Dans sortie.txt, les trois lignes REFUSE le montrent. Les methodes rendent faux
+et laissent le programme decider : elles ne plantent pas.
+L'anneau avance au rendu : sur trois images, l'index revient a 0 au quatrieme tour.
+
+Pourquoi un simulateur permissif serait pire :
+Un simulateur qui accepte le double emprunt laisse ecrire du code qui ne marche que chez lui.
+Le vrai runtime d'un casque sanctionne ces fautes, et il n'y a plus de debogueur sur le casque.
+Ici la garantie coute un booleen et une comparaison. L'erreur impossible a ecrire
+est une erreur qu'on ne diagnostiquera jamais a trois heures du matin.
